@@ -1,0 +1,165 @@
+<scene version="2.1.0">
+
+<!-- Defaults, these can be set via the command line: -Darg=value -->
+
+	<default name="spp" value="1024"/>
+	<default name="resx" value="2185"/>
+	<default name="resy" value="1638"/>
+
+<!-- Camera and Rendering Parameters -->
+
+
+	<integrator type="path" id="elm__0" name="elm__0">
+		<integer name="max_depth" value="7"/>
+	</integrator>
+	<sensor type="perspective" id="elm__2" name="elm__2">
+		<string name="fov_axis" value="x"/>
+		<float name="fov" value="82.469849"/>
+		<float name="principal_point_offset_x" value="0.000000"/>
+		<float name="principal_point_offset_y" value="-0.000000"/>
+		<float name="near_clip" value="0.100000"/>
+		<float name="far_clip" value="1000.000000"/>
+		<transform name="to_world">
+			<rotate x="1" angle="-157.6017520033552"/>
+			<rotate y="1" angle="-49.276495389705374"/>
+			<rotate z="1" angle="-179.81416922201862"/>
+			<translate value="3.528507 4.392969 2.198891"/>
+		</transform>
+		<sampler type="independent" name="sampler">
+			<integer name="sample_count" value="$spp"/>
+		</sampler>
+		<film type="hdrfilm" name="film">
+			<integer name="width" value="$resx"/>
+			<integer name="height" value="$resy"/>
+			<string name="pixelFormat" value="rgb"/>
+			<boolean name="banner" value="false"/>
+
+			<rfilter type="gaussian"/>
+		</film>
+	</sensor>
+
+
+<!-- Materials -->
+
+	<bsdf type="twosided" id="mat-Material.001" name="mat-Material.001">
+		<bsdf type="principled" name="bsdf">
+			<rgb value="0.632209 0.600940 0.313522" name="base_color"/>
+			<float name="spec_tint" value="1.0"/>
+			<float name="spec_trans" value="0.000000"/>
+			<float name="metallic" value="0.0"/>
+			<float name="anisotropic" value="0.000000"/>
+			<float name="roughness" value="0.276"/>
+			<float name="sheen" value="0.000000"/>
+			<float name="sheen_tint" value="1.000000"/>
+			<float name="clearcoat" value="0.704663"/>
+			<float name="clearcoat_gloss" value="0.11604"/>
+			<float name="specular" value="0.500000"/>
+		</bsdf>
+	</bsdf>
+
+	<bsdf type="twosided" id="mat-chainmail" name="mat-chainmail">
+		<bsdf type="principled" name="bsdf">
+			<texture type="bitmap" name="base_color">
+				<string name="filename" value="textures/armor_chainmail_BaseColor.png"/>
+			</texture>
+			<float name="spec_tint" value="1.0"/>
+			<float name="spec_trans" value="0.000000"/>
+			<texture type="bitmap" name="metallic">
+				<string name="filename" value="textures/armor_chainmail_Metallic.png"/>
+			</texture>
+			<float name="anisotropic" value="0.000000"/>
+			<texture type="bitmap" name="roughness">
+				<string name="filename" value="textures/armor_chainmail_Roughness.png"/>
+			</texture>
+			<float name="sheen" value="0.000000"/>
+			<float name="sheen_tint" value="1.000000"/>
+			<float name="clearcoat" value="0.000000"/>
+			<float name="clearcoat_gloss" value="0.000900"/>
+			<float name="specular" value="0.001000"/>
+		</bsdf>
+	</bsdf>
+
+	<bsdf type="twosided" id="mat-leather" name="mat-leather">
+		<bsdf type="principled" name="bsdf">
+			<texture type="bitmap" name="base_color">
+				<string name="filename" value="textures/armor_leather_BaseColor.png"/>
+			</texture>
+			<float name="spec_tint" value="1.0"/>
+			<float name="spec_trans" value="0.000000"/>
+			<texture type="bitmap" name="metallic">
+				<string name="filename" value="textures/armor_leather_Metallic.png"/>
+			</texture>
+			<float name="anisotropic" value="0.000000"/>
+			<texture type="bitmap" name="roughness">
+				<string name="filename" value="textures/armor_leather_Roughness.png"/>
+			</texture>
+			<float name="sheen" value="0.000000"/>
+			<float name="sheen_tint" value="1.000000"/>
+			<float name="clearcoat" value="0.000000"/>
+			<float name="clearcoat_gloss" value="0.000900"/>
+			<float name="specular" value="0.001000"/>
+		</bsdf>
+	</bsdf>
+
+	<bsdf type="twosided" id="mat-platemail" name="mat-platemail">
+		<bsdf type="principled" name="bsdf">
+			<texture type="bitmap" name="base_color">
+				<string name="filename" value="textures/armor_Platemail_BaseColor.png"/>
+			</texture>
+			<float name="spec_tint" value="1.0"/>
+			<float name="spec_trans" value="0.000000"/>
+			<texture type="bitmap" name="metallic">
+				<string name="filename" value="textures/armor_Platemail_Metallic.png"/>
+			</texture>
+			<float name="anisotropic" value="0.000000"/>
+			<texture type="bitmap" name="roughness">
+				<string name="filename" value="textures/armor_Platemail_Roughness.png"/>
+			</texture>
+			<float name="sheen" value="0.000000"/>
+			<float name="sheen_tint" value="1.000000"/>
+			<float name="clearcoat" value="0.000000"/>
+			<float name="clearcoat_gloss" value="0.000900"/>
+			<float name="specular" value="0.001000"/>
+		</bsdf>
+	</bsdf>
+
+
+
+<!-- Emitters -->
+
+
+
+<!-- Shapes -->
+	<shape type="obj" id="elm__4" name="elm__4">
+		<string name="filename" value="meshes/plane.obj"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-Material.001" name="bsdf"/>
+	</shape>
+	<shape type="obj" id="elm__6" name="elm__6">
+		<string name="filename" value="meshes/chainmail.obj"/>
+		
+		<ref id="mat-chainmail" name="bsdf"/>
+	</shape>
+	<shape type="obj" id="elm__7" name="elm__7">
+		<string name="filename" value="meshes/leather.obj"/>
+		
+		<ref id="mat-leather" name="bsdf"/>
+	</shape>
+	<shape type="obj" id="elm__8" name="elm__8">
+		<string name="filename" value="meshes/platemail.obj"/>
+		
+		<ref id="mat-platemail" name="bsdf"/>
+	</shape>
+	
+<!-- Volumes -->
+
+<emitter type="envmap" id="Area_002-light">
+		<string name="filename" value="../../matpreview/cayley_interior_1k.hdr"/>
+		<transform name="toWorld">
+			<rotate y="1" angle="90"/>
+			
+		</transform>
+		<float name="scale" value="1"/>
+</emitter>
+
+</scene>
