@@ -1,5 +1,4 @@
-## lajolla is the UCSD CSE 272 renderer.
-## This is a course project written on top of the renderer basecode, implementing the Disney Principled BSDF (2012) 
+## This is a UCSD CSE272 course project written on top of the lajolla basecode, implementing the Disney Principled BSDF (2012) 
 
 TODO: Some technical details explaination (noted on 1/26/2026)
 
