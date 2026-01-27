@@ -1,5 +1,15 @@
-# lajolla
-UCSD CSE 272 renderer
+## lajolla is the UCSD CSE 272 renderer.
+## This is a course project written on top of the renderer basecode, implementing the Disney Principled BSDF (2012) 
+
+TODO: Some technical details explaination (noted on 1/26/2026)
+
+
+# Demo Images
+Some images rendered by lajolla.
+
+![Demo](https://github.com/bobhansky/DisneyBSDF/blob/main/images/disney_bsdf_array_final.png)
+![Demo](https://github.com/bobhansky/DisneyBSDF/blob/main/images/knight.png)
+![Demo](https://github.com/bobhansky/DisneyBSDF/blob/main/images/knight2.png)
 
 # Build
 All the dependencies are included. Use CMake to build.
@@ -40,3 +50,4 @@ We use [miniz](https://github.com/richgel999/miniz) for compression & decompress
 We use [tinyply](https://github.com/ddiakopoulos/tinyply) for parsing PLY files.
 
 Many scenes in the scenes folder are directly downloaded from [http://www.mitsuba-renderer.org/download.html](http://www.mitsuba-renderer.org/download.html). Scenes courtesy of Wenzel Jakob, Cornell Program of Computer Graphics, Marko Dabrovic, Eric Veach, Jonas Pilo, and Bernhard Vogl.
+
