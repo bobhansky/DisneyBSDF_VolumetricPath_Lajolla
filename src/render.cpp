@@ -136,9 +136,15 @@ Image3 vol_path_render(const Scene &scene) {
         int y1 = min(y0 + tile_size, h);
         for (int y = y0; y < y1; y++) {
             for (int x = x0; x < x1; x++) {
+                if (x == 219 && y == 206){
+                    int a = 1;
+                }
                 Spectrum radiance = make_zero_spectrum();
                 int spp = scene.options.samples_per_pixel;
+                //std::cout << "x,y," << x << " " << y << " " <<   std::endl;
                 for (int s = 0; s < spp; s++) {
+                    if (x == 126 && y == 0 && s == 1023)
+                        int a = 1;
                     Spectrum L = f(scene, x, y, rng);
                     if (isfinite(L)) {
                         // Hacky: exclude NaNs in the rendering.
