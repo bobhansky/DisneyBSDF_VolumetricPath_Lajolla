@@ -1,16 +1,20 @@
-## This is a UCSD CSE272 course project written on top of the lajolla basecode, implementing the Disney Principled BSDF (2012) 
+## This is a UCSD CSE272 course project written on top of the lajolla basecode, implementing the Disney Principled BSDF (2012), and Volumtric Path Tracing.
 
 TODO: Some technical details explaination (noted on 1/26/2026)
 
 
 # Demo Images
 Some images rendered by lajolla.
-
+## Disney BSDF
 ![Demo](https://github.com/bobhansky/DisneyBSDF/blob/main/images/disney_bsdf_array_final.png)
 ![Demo](https://github.com/bobhansky/DisneyBSDF/blob/main/images/knight_profile.png)
 ![Demo](https://github.com/bobhansky/DisneyBSDF/blob/main/images/knight.png)
 ![Demo](https://github.com/bobhansky/DisneyBSDF/blob/main/images/knight2.png)
 
+## Volumetric Path Tracing
+![Demo](https://github.com/bobhansky/DisneyBSDF_VolumetricPath_Lajolla/blob/main/images/hetvol.png)
+![Demo](https://github.com/bobhansky/DisneyBSDF_VolumetricPath_Lajolla/blob/main/images/hetvol_colored.png)
+ <img src="https://github.com/bobhansky/DisneyBSDF_VolumetricPath_Lajolla/blob/main/images/cornellBox_volpath.png" width=800 height=800/>
 # Build
 All the dependencies are included. Use CMake to build.
 If you are on Unix systems, try
