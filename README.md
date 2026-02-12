@@ -14,8 +14,7 @@ Some images rendered by lajolla.
 ## Volumetric Path Tracing
 ![Demo](https://github.com/bobhansky/DisneyBSDF_VolumetricPath_Lajolla/blob/main/images/hetvol.png)
 ![Demo](https://github.com/bobhansky/DisneyBSDF_VolumetricPath_Lajolla/blob/main/images/hetvol_colored.png)
-![Demo](https://github.com/bobhansky/DisneyBSDF_VolumetricPath_Lajolla/blob/main/images/cornellBox_volpath.png)
-
+ <img src="https://github.com/bobhansky/DisneyBSDF_VolumetricPath_Lajolla/blob/main/images/cornellBox_volpath.png" width=800 height=800/>
 # Build
 All the dependencies are included. Use CMake to build.
 If you are on Unix systems, try
