@@ -727,7 +727,7 @@ Spectrum vol_path_tracing_5(const Scene &scene,
             pdf_dir_latest = dir_pdf;
             pdf_multi_trans = 1;        // reset
 
-            Spectrum rho = eval(pf, *nxt_dir, wi);
+            Spectrum rho = eval(pf, wi, *nxt_dir);
             Spectrum sigma_s = get_sigma_s(scene.media[current_medium_id], ray.org);
             tp = tp * (rho * sigma_s / dir_pdf);
             ray.dir = *nxt_dir;
@@ -1177,10 +1177,15 @@ Spectrum vol_path_tracing(const Scene &scene,
                     Light light = scene.lights[light_id];
                     PointAndNormal point_on_light{ light_point, vertex_->geometric_normal };
 
-                    Spectrum pdf_nee = pdf_multi_nee * pdf_point_on_light(light, point_on_light, pos_nee_cache, scene);
+                    // important:  avg()
+                    /*
+                    Notice that whenever we need to compute the Monte Carlo estimate of the transmittance, we need to
+                        divide it by the average PDFs over the RGB channels.
+                    */
+                    Real pdf_nee = avg(pdf_multi_nee) * pdf_point_on_light(light, point_on_light, pos_nee_cache, scene);
 
                     Real G = (abs(dot(-normalize(point_on_light.position - pos_nee_cache), point_on_light.normal))) / (distance_squared(pos_nee_cache, point_on_light.position));
-                    Spectrum pdf_phase = pdf_dir_latest * pdf_multi_trans * G;
+                    Spectrum pdf_phase = pdf_dir_latest * avg(pdf_multi_trans) * G;
                     Spectrum w = (pdf_phase * pdf_phase) / (pdf_nee * pdf_nee + pdf_phase * pdf_phase);
 
                     radiance += w * tp * Le;
@@ -1217,7 +1222,7 @@ Spectrum vol_path_tracing(const Scene &scene,
             pdf_multi_nee = make_const_spectrum(1);          // reset ?
             pos_nee_cache = ray.org;
 
-            Spectrum rho = eval(pf, *nxt_dir, wi);
+            Spectrum rho = eval(pf, wi, *nxt_dir);
             Spectrum sigma_s = get_sigma_s(scene.media[current_medium_id], ray.org);
             tp = tp * (rho * sigma_s / dir_pdf);
             ray.dir = *nxt_dir;
